@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>clock</title>
+    <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' type='text/css'>-->
+    <link rel='stylesheet' href='style.css' type='text/css'>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+
+            <!--<script type='text/javascript' src='https://code.jquery.com/jquery-2.2.0.min.js'></script>-->
+            <!--<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>-->
+            <script type='text/javascript'>
+                //write some custom javascript
+                const secondHand = document.querySelector('.second-hand');
+                const minHand = document.querySelector('.min-hand');
+                const hourHand = document.querySelector('.hour-hand');
+
+                function setDate() {
+                    const now = new Date();
+                    const seconds = now.getSeconds();
+                    const secondsDegrees = ((seconds / 60) * 360) + 90;
+                    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+                    console.log(seconds);
+                    const min = now.getMinutes();
+                    const minDegrees = ((min / 60) * 360) + 90;
+                    minHand.style.transform = `rotate(${minDegrees}deg)`;
+                    console.log(min);
+                    const hour = now.getHours();
+                    const hourDegrees = ((hour / 60) * 360) + 90;
+                    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+                    console.log(hour);
+
+                }
+                setInterval(setDate, 1000);
+
+                setDate();
+            </script>
+</body>
+
+</html>
